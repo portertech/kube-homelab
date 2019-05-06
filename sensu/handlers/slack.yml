@@ -1,0 +1,14 @@
+api_version: core/v2
+type: Handler
+metadata:
+  namespace: kubernetes
+  name: slack
+spec:
+  type: pipe
+  runtime_assets:
+  - sensu-slack-handler
+  command: sensu-slack-handler --channel '#demo' --timeout 20 --username 'sensu' --webhook-url 'SECRET'
+  timeout: 30
+  filters:
+  - is_incident
+  - not_silenced

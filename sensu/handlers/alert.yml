@@ -1,0 +1,14 @@
+api_version: core/v2
+type: Handler
+metadata:
+  namespace: kubernetes
+  name: alert
+spec:
+  type: set
+  runtime_assets:
+  - sensu-email-handler
+  handlers:
+  - slack
+  - email
+  - pagerduty
+  - moogsoft

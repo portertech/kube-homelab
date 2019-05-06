@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: sensu/sensu:5.5.0
+          image: sensu/sensu:5.6.0
           command: ["/opt/sensu/bin/sensu-backend", "start",
           "--log-level", "debug", "--etcd-name", "$(POD_NAME)",
           "--etcd-initial-advertise-peer-urls",
