@@ -1,0 +1,36 @@
+---
+apiVersion: habitat.sh/v1beta1
+kind: Habitat
+customVersion: v1beta2
+metadata:
+  ## Name of the Kubernetes resource.
+  name: portertech-blog
+spec:
+  v1beta2:
+    ## Name of the Habitat service package exported as a Docker image.
+    image: portertech/portertech:latest
+    ## Number of desired instances.
+    count: 3
+    ## An object containing parameters that affects how the Habitat service
+    ## is executed.
+    service:
+      ## Name of the Habitat service.
+      name: portertech-blog
+      ## Habitat topology of the service.
+      topology: standalone
+    env:
+      - name: HAB_LICENSE
+        value: accept-no-persist
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: portertech-blog
+spec:
+  selector:
+    habitat-name: portertech-blog
+  ports:
+  - protocol: TCP
+    port: 8000
+    targetPort: 8000
+  type: LoadBalancer

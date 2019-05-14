@@ -1,0 +1,77 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: habitat-operator
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: habitat-operator
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: habitat-operator
+subjects:
+- kind: ServiceAccount
+  name: habitat-operator
+  namespace: default
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: habitat-operator
+# Keep Cluster wide permissions at the top of the list and then update
+# `TestRolesAndClusterRolesSync` in `test/sync/rbac` package to exclude
+# those rules
+rules:
+- apiGroups:
+  - apiextensions.k8s.io
+  resources:
+  - customresourcedefinitions
+  verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+- apiGroups: [""]
+  resources:
+  - namespaces
+  verbs: ["list"]
+- apiGroups:
+  - habitat.sh
+  resources:
+  - habitats
+  verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+- apiGroups:
+  - apps
+  resources:
+  - statefulsets
+  verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+- apiGroups: [""]
+  resources:
+  - configmaps
+  verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+- apiGroups: [""]
+  resources:
+  - secrets
+  verbs: ["get"]
+- apiGroups: [""]
+  resources:
+  - pods
+  verbs: ["get", "list", "watch", "deletecollection"]
+- apiGroups: [""]
+  resources:
+  - events
+  verbs: [ "create", "patch" ]
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: habitat-operator
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: habitat-operator
+    spec:
+      containers:
+      - name: habitat-operator
+        image: habitat/habitat-operator:v0.8.1
+      serviceAccountName: habitat-operator
