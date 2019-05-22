@@ -2,7 +2,7 @@ api_version: core/v2
 type: CheckConfig
 metadata:
   namespace: kubernetes
-  name: dummy-app-prometheus
+  name: portertech-blog-prometheus
 spec:
   runtime_assets:
   - sensu-prometheus-collector

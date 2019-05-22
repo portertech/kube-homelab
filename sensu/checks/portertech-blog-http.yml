@@ -1,0 +1,15 @@
+api_version: core/v2
+type: CheckConfig
+metadata:
+  namespace: kubernetes
+  name: portertech-blog-http
+spec:
+  runtime_assets:
+  - check-plugins
+  command: check-http -u http://localhost:8000/
+  subscriptions:
+  - portertech-blog-bastion
+  publish: true
+  interval: 10
+  handlers:
+  - alert
