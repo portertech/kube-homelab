@@ -4,7 +4,7 @@ kind: Habitat
 customVersion: v1beta2
 metadata:
   ## Name of the Kubernetes resource.
-  name: portertech-blog
+  name: portertech-blog-operator
 spec:
   v1beta2:
     ## Name of the Habitat service package exported as a Docker image.
@@ -15,7 +15,7 @@ spec:
     ## is executed.
     service:
       ## Name of the Habitat service.
-      name: portertech-blog
+      name: portertech-blog-operator
       ## Habitat topology of the service.
       topology: standalone
     env:
@@ -25,10 +25,10 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: portertech-blog
+  name: portertech-blog-operator
 spec:
   selector:
-    habitat-name: portertech-blog
+    habitat-name: portertech-blog-operator
   ports:
   - protocol: TCP
     port: 8000
