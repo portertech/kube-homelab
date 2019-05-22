@@ -5,7 +5,7 @@ metadata:
   name: dummy-app-prometheus
 spec:
   runtime_assets:
-  - prometheus-collector
+  - sensu-prometheus-collector
   command: sensu-prometheus-collector -exporter-url http://localhost:8080/metrics
   subscriptions:
   - dummy

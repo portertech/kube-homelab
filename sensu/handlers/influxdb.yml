@@ -7,7 +7,7 @@ spec:
   type: pipe
   runtime_assets:
   - sensu-influxdb-handler
-  command: sensu-influxdb-handler -a 'http://influxdb.default.svc.cluster.local:8086' -d sensu -u sensu -p password
+  command: sensu-influxdb-handler -a 'http://influxdb.sensu-system.svc.cluster.local:8086' -d sensu -u sensu -p password
   timeout: 10
   filters:
   - has_metrics
