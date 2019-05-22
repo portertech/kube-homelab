@@ -1,0 +1,16 @@
+api_version: core/v2
+type: CheckConfig
+metadata:
+  namespace: kubernetes
+  name: portertech-blog-habitat
+spec:
+  runtime_assets:
+  - sensu-ruby-runtime
+  - sensu-plugins-habitat
+  command: check-habitat-service-health.rb
+  subscriptions:
+  - portertech-blog-bastion
+  publish: true
+  interval: 10
+  handlers:
+  - alert

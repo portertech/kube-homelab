@@ -1,0 +1,15 @@
+---
+type: Asset
+api_version: core/v2
+metadata:
+  name: sensu-plugins-habitat
+  namespace: kubernetes
+  labels: {}
+  annotations: {}
+spec:
+  url: https://github.com/socrata-platform/sensu-plugins-habitat/releases/download/v0.1.5/sensu-plugins-habitat_v0.1.5_alpine_linux_amd64.tar.gz
+  sha512: 004537d0c4b715b3ebd87b5ee13e822a6adb064fa19eca439cccda83fcdff4056ac236539286be9a28b0cea87e2a5700fadae976e9d5e1d469ba23c305844fe1
+  filters:
+  - entity.system.os == 'linux'
+  - entity.system.arch == 'amd64'
+  - entity.system.platform == 'alpine'

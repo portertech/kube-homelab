@@ -1,0 +1,15 @@
+---
+type: Asset
+api_version: core/v2
+metadata:
+  name: sensu-ruby-runtime
+  namespace: kubernetes
+  labels: {}
+  annotations: {}
+spec:
+  url: https://github.com/sensu/sensu-ruby-runtime/releases/download/0.0.5/sensu-ruby-runtime_0.0.5_alpine_linux_amd64.tar.gz
+  sha512: dc4c60215c8606062609b471d803147045a6855ccf55d4d3145d96ca528fac48a3b039a1563e4de65b9c9a9fb09445f3a133a6ab1a4d688c1b8164b1b1ba799d
+  filters:
+  - entity.system.os == 'linux'
+  - entity.system.arch == 'amd64'
+  - entity.system.platform == 'alpine'
