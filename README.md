@@ -1,5 +1,7 @@
 # Kube Homelab
 
+![homelab](https://raw.github.com/portertech/kube-homelab/master/photos/homelab.jpg)
+
 ## ChefConf 2019
 
 - [Slides](https://speakerdeck.com/portertech/understanding-habitat-and-kube-a-home-lab-experiment)
