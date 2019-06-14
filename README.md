@@ -4,6 +4,7 @@
 
 ## ChefConf 2019
 
+- [Video](https://www.youtube.com/watch?v=7sNyv-BZoW4)
 - [Slides](https://speakerdeck.com/portertech/understanding-habitat-and-kube-a-home-lab-experiment)
 
 ## Hardware
@@ -29,6 +30,8 @@ For a total of:
 - [Ubiquiti EdgeRouter X](https://www.amazon.com/Ubiquiti-EdgeRouter-Advanced-Gigabit-Ethernet/dp/B00YFJT29C/ref=sr_1_2?keywords=Ubiquiti+EdgeRouter&qid=1558667073&s=gateway&sr=8-2)
 
 - [Ethernet patch cables](https://www.amazon.com/Rankie-Snagless-Ethernet-5-Pack-5-Color/dp/B01J8KFTB2/ref=sr_1_fkmr0_1?crid=2AM04YG5VFERL&keywords=rankie+rj45+cat6+snagless+ethernet&qid=1558667137&s=gateway&sprefix=Rankie+RJ45+cat%2Caps%2C267&sr=8-1-fkmr0)
+
+## Guide (WIP)
 
 ### Flannel
 
